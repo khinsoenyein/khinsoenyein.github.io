@@ -42,12 +42,32 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/tabmenu.css">
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+	<script>
+        $(document).ready(function() {
+			var $btns = $('.btntab').click(function() {
+				if (this.id == 'all') {
+					$('.parent > div').fadeIn(450);
+				} else {
+					var $el = $('.' + this.id).fadeIn(450);
+					$('.parent > div').not($el).hide();
+				}
+				$btns.removeClass('activetab');
+				$(this).addClass('activetab');
+				})
+			});
+    </script>
 
 	</head>
 	<body>
@@ -658,7 +678,7 @@
 					               </div>
 
 					               <div class="timeline-label">
-					                  <h2><a href="#">Full Stack Developer</a> at Amara Communications <span>2022-present</span></h2>
+					                  <h2><a href="#">Senior Developer</a> at Amara Communications <span>2022-present</span></h2>
 										<ul>
 											<li>Responsible to design client-side and server-side architecture</li>
 											<li>Develop and manage well-functioning databases, applications and effective APIs with maximum speed and scalability</li>
@@ -754,26 +774,93 @@
 					</div>
 					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
 						<div class="col-md-12">
-							<p class="work-menu"><span><a href="#" class="active">Web Application</a></span> <span><a href="#">Mobile Apps</a></span> <span><a href="#">Software</a></span></p>
+							<p class="project-menu">
+								<span><a href="#project" class="activetab btntab" id="all">All</a></span> 
+								<span><a href="#project" class="btntab" id="enterprise_system">Enterprise System</a></span> 
+								<span><a href="#project" class="btntab" id="project_management">Project Management</a></span>
+								<span><a href="#project" class="btntab" id="web_development">Web Development</a></span> 
+								<span><a href="#project" class="btntab" id="mobile_development">Mobile Development</a></span>
+							</p>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/my_ananda_selfcare.png); border:1px solid rgb(206, 206, 206);">
+
+					<div class="row parent">
+						<div class="col-md-6 animate-box project_management web_development mobile_development" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(images/solo_version.PNG); border:1px solid rgb(206, 206, 206);">
 								<div class="desc">
 									<div class="con">
-										<h3><a href="work.html">My Ananda</a></h3>
-										<span>Application Structure</span>
+										<h3><a href="https://play.google.com/store/apps/details?id=com.ananda.attendance" target="_blank">Solo Version (Attendance Management System)</a></h3>
+										<span>Enterprise System</span>
+										<p style="color: white;">Amara Communications</p>
 										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
+											<span><a href="#"><i class="icon-user"></i> 400+</a></span>
 										</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+						
+						<div class="col-md-6 animate-box mobile_development web_development" data-animate-effect="fadeInRight">
+							<div class="project" style="background-image: url(images/my_ananda_app.PNG); border:1px solid rgb(206, 206, 206);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="https://play.google.com/store/apps/details?id=myanmar.ananda.selfcare">My Ananda App (Customer Self Care)</a></h3>
+										<span>Mobile Development</span>
+										<p style="color: white;">Amara Communications</p>
+										<p class="icon">
+											<span><a href="#"><i class="icon-eye"></i> 20,000+</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 animate-box enterprise_system" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(images/alepo_mso.jfif); border:1px solid rgb(206, 206, 206);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="https://www.alepo.com/amara-communications-signed-up-for-managed-service-offerings/" target="_blank">Alepo's Managed Service Offering (MSO)</a></h3>
+										<span>Enterprise System</span>
+										<p style="color: white;">Amara Communications</p>
+										<p class="icon">
+											<span><a href="#"><i class="icon-user"></i> 25,000+</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 animate-box enterprise_system" data-animate-effect="fadeInLeft">
+							<div class="project" style="background-image: url(images/ZTESmart.jpg); border:1px solid rgb(206, 206, 206);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="https://mpt.com.mm/mm/" target="_blank">ZSmart cvBS (ZTE's Convergent Billing System)</a></h3>
+										<span>Enterprise System</span>
+										<p style="color: white;">Myanmar Posts and Telecommunication (MPT)</p>
+										<p class="icon">
+											<span><a href="#"><i class="icon-user"></i> 10,000,000+</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 animate-box project_management" data-animate-effect="fadeInRight">
+							<div class="project" style="background-image: url(images/kissflow.svg); border:1px solid rgb(206, 206, 206);">
+								<div class="desc">
+									<div class="con">
+										<h3><a href="https://kissflow.com/">KISSFLOW Workflow Management</a></h3>
+										<span>Business Process Development</span>
+										<p style="color: white;">FTTx Service of MPT Joint Operations (JO)</p>
+										<p class="icon">
+											<span><a href="#"><i class="icon-eye"></i> 20,000+</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 animate-box project_management" data-animate-effect="fadeInRight">
 							<div class="project" style="background-image: url(images/mobile_financial_service.png); border:1px solid rgb(206, 206, 206);">
 								<div class="desc">
 									<div class="con">
@@ -788,7 +875,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
+
+						<div class="col-md-6 animate-box project_management" data-animate-effect="fadeInTop">
 							<div class="project" style="background-image: url(images/business_continuity_n_disaster_recovery.png); border:1px solid rgb(206, 206, 206);">
 								<div class="desc">
 									<div class="con">
@@ -803,7 +891,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
+						<div class="col-md-6 animate-box project_management" data-animate-effect="fadeInBottom">
 							<div class="project" style="background-image: url(images/modification_timeline.png); border:1px solid rgb(206, 206, 206);">
 								<div class="desc">
 									<div class="con">
@@ -818,7 +906,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+						<div class="col-md-6 animate-box project_management" data-animate-effect="fadeInLeft">
 							<div class="project" style="background-image: url(images/customer_service.png); border:1px solid rgb(206, 206, 206);">
 								<div class="desc">
 									<div class="con">
@@ -833,27 +921,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/img-6.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 06</a></h3>
-										<span>Web Design</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-					<!-- <div class="row">
-						<div class="col-md-12 animate-box">
-							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
-						</div>
-					</div> -->
 				</div>
 			</section>
 
@@ -891,7 +959,7 @@
 								</div>
 								<div class="colorlib-text">
 									<!-- <p style="margin-top:-1.5em;">No. (4), 6th Floor, Zaythawon Street, Thantada Quarter, SanChaung Township, Yangon.</p> -->
-									<p style="margin-top:-1.5em;">SanChaung Township, Yangon.</p>
+									<p><a href="#">SanChaung Township, Yangon.</a></p>
 								</div>
 							</div>
 						</div>
